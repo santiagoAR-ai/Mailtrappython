@@ -30,7 +30,7 @@ def send_email(to_email: str, subject: str, body: str):
 
 @app.post("/send-email/")
 def send_email_endpoint(email: EmailSchema, background_tasks: BackgroundTasks):
-    # Enviar el correo en segundo plano
+    
     background_tasks.add_task(
         send_email, email.email, email.subject, email.body
     )
